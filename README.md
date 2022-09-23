@@ -1,4 +1,6 @@
 # u2dl
+[![exe-release](https://img.shields.io/github/v/release/darkhound-org/u2dl)](https://github.com/Darkhound-org/u2dl)
+[![li](https://img.shields.io/github/license/Darkhound-org/u2dl)](https://github.com/Darkhound-org/u2dl/blob/u2_dl/LICENSE)
 
 Terminal youtube video ▶️ downloader 📥
 
