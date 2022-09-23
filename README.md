@@ -73,11 +73,21 @@ Options:
   -a, --audio          Convert to high quality mp3 format. [Note] : Ffmpeg
                        recquired for conversion. Read docs for more details.
   -s, --save_to TEXT   Takes the download location [path]
-  -i, --info TEXT      Display all available information about a Youtube
+  -i, --info TEXT      Display all available information about a Youtube video
   --help               Show this message and exit.
 ```
+#### Examples
+Replace **< link >** and **< path >** with the actual link and path in the below examples.
 
+▪ Basic usage : `u2dl get -l(or)--link <link>`
 
+▪ `u2dl get -p(or)--playlist <link>`
 
+▪ `u2dl -i(or)--info <link>`
 
+▪ `u2dl -l(or)--link <link> -s(or)--save_to <path>`
+
+▪ `u2dl get -l(or)--link <link> -a(or)--audio`
+
+▪ `u2dl get -l(or)--link <link> -s(or)--save_to <path> -a(or)--audio`
 
