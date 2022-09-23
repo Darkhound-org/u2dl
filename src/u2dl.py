@@ -146,7 +146,7 @@ Syntax: u2dl get -l(or)-p(or)i <link> -s <path> -a(flag not valid for playlists 
 @click.option('--playlist','-p',help='Takes the playlist url')
 @click.option('--audio','-a',is_flag=True,help='Convert to high quality mp3 format.\n[Note] : Ffmpeg recquired for conversion. Read docs for more details.')
 @click.option('--save_to','-s',help='Takes the download location [path]')
-@click.option('--info','-i',help='Display all available information about a Youtube ')
+@click.option('--info','-i',help='Display all available information about a Youtube video')
 def get(link,audio,save_to,playlist,info):
     # Download single videos and playlists from Youtube 
 
