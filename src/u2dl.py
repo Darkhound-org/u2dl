@@ -52,11 +52,16 @@ console = Console()
 
 @click.group(invoke_without_command=True, no_args_is_help=True) 
 @click.option('--license','-li',is_flag=True,help='A brief info about the project license')
-@click.option('--open_github',':)',is_flag=True,help='Support us on Github o(^•x•^)o ')
-@click.option('--docs','-d',is_flag=True,help='Opens the documentation')
+@click.option('--docs','-d',is_flag=True,help='Opens the documentation [in your browser]')
 @click.option('--ffmpeg','-f',is_flag=True,help='Get ffmpeg.exe')
 @click.option('--dev','--developer',is_flag=True,help='A brief info about the developer')
-def cli(license,open_github,docs,dev,ffmpeg):
+def cli(license,docs,dev,ffmpeg):
+    '''
+    u2dl - Terminal youtube video downloader\n
+    Home page: https://darkhound-org.github.io/u2dl/\n
+    Github: https://github.com/Darkhound-org/u2dl
+
+    '''
     if license:
 
         print('''
@@ -66,8 +71,6 @@ SPDX-License-Identifier: Apache-2.0
     
     ''')
     elif docs:
-        title = text2art(" u2dl ")
-        lazy(title,2./90)
         print('\n[view(v) / exit(e)] Enter v to read the documentation [default: v]')
         doc = ''
         while doc != 'e':
@@ -75,27 +78,18 @@ SPDX-License-Identifier: Apache-2.0
             if doc == 'v':
                 print('Viewing Docs...') 
                 time.sleep(0.3)
-                webbrowser.open('https://github.com/Darkhound-org/docs/u2dl') # change link 
+                webbrowser.open('https://darkhound-org.github.io/u2dl/') 
                 break
             elif doc == 'e':
                 break
             elif doc == '':
                 print('Viewing Docs...')
                 time.sleep(0.3)
-                webbrowser.open('https://github.com/Darkhound-org/docs/u2dl') # change link
+                webbrowser.open('https://darkhound-org.github.io/u2dl/')
                 break    
 
-    elif open_github:
-        print('''
-
-        Opening link in your default browser...
-
-        https://github.com/Darkhound-org/
-
-        ''')    
-        time.sleep(0.2)
-        webbrowser.open('https://github.com/Darkhound-org/')
     elif dev:
+        developer = 'Darkhound-org'
         print('\n\t\t\tWe '+'Love'+' CLI')
         
         print('''
@@ -103,7 +97,7 @@ SPDX-License-Identifier: Apache-2.0
         Darkhound-org develops applications [games too..] programmed in different languages [python,golang,lua..etc]
 
         Website: https://darkhound-org.github.io/
-        Github: https://github.com/darkhound-org
+        Github o(^•x•^)o : https://github.com/darkhound-org
         Member(s) : Scott Lang
 
         ''') 
@@ -123,14 +117,14 @@ SPDX-License-Identifier: Apache-2.0
                 spinner.start()
                 urllib.request.urlretrieve("https://github.com/Darkhound-org/Glixxko/releases/download/071039/ffmpeg.exe", 'ffmpeg.exe')
                 spinner.stop()
-                print('\n[DEBUG] ffmpeg.exe in '+cwd)
+                print('\n[INFO] ffmpeg.exe in '+cwd)
             elif fc == '':
                 print('[INFO] Downloading ffmpeg.exe... [source : https://github.com/Darkhound-org/Glixxko/releases/download/071039/ffmpeg.exe]')    
                 spinner = Halo(text='\nDownloading...  ', spinner='dots')
                 spinner.start()
                 urllib.request.urlretrieve("https://github.com/Darkhound-org/Glixxko/releases/download/071039/ffmpeg.exe",'ffmpeg.exe')
                 spinner.stop()
-                print('\n[DEBUG] ffmpeg.exe in '+cwd)
+                print('\n[INFO] ffmpeg.exe in '+cwd)
             elif fc.lower() == 'e':
                 break
 
@@ -139,23 +133,23 @@ SPDX-License-Identifier: Apache-2.0
 
 
 
-@click.command(help='Download Youtube videos from a single link or playlist')
+@click.command(help='''
+
+Download single videos and playlists from Youtube
+
+Syntax: u2dl get -l(or)-p(or)i <link> -s <path> -a(flag not valid for playlists and info) 
+
+[Note] : When converting make sure the downloaded file is in the working directory. Ffmpeg recquired for conversion.\n
+[Note] : You can place Ffmpeg in the working directory or add to environment path variable.
+    ''')
 @click.option('--link','-l',help='Takes the Youtube url')
 @click.option('--playlist','-p',help='Takes the playlist url')
-@click.option('--audio','-a',is_flag=True,help='Display audio streams only.[Note] : Ffmpeg recquired for conversion. Read docs for more details.')
+@click.option('--audio','-a',is_flag=True,help='Convert to high quality mp3 format.\n[Note] : Ffmpeg recquired for conversion. Read docs for more details.')
 @click.option('--save_to','-s',help='Takes the download location [path]')
-@click.option('--info','-i',help='Display all available information of a Youtube ')
+@click.option('--info','-i',help='Display all available information about a Youtube ')
 def get(link,audio,save_to,playlist,info):
+    # Download single videos and playlists from Youtube 
 
-    # Download Youtube videos from a single link or playlist  
-    # Example usage [1]: u2dl get -l https://youtu.be/yJg-Y5byMMw -s C:\Users\MyLap\Downloads\u2dl\videos -a
-    # Example usage [2]: u2dl get -p https://youtube.com/playlist?list=PLRBp0Fe2GpglMms1WFSaUPCZmkzI_yi3Z
-    # Example usage [3]: u2dl get -p https://youtube.com/playlist?list=PLRBp0Fe2GpglMms1WFSaUPCZmkzI_yi3Z -s C:\Users\MyLap\Desktop\output
-    # Example usage [4]: u2dl get -i https://youtu.be/6DxjJzmYsXo
-    # Example usage [5]: u2dl get -l https://youtu.be/yJg-Y5byMMw
-
-    # [Note] : When converting make sure the downloaded file is in the working directory. Ffmpeg recquired for conversion.
-    # You can place Ffmpeg in the cwd or add to environment path variable.
     if playlist:
             pl = Playlist(playlist)
             print('\n[see(display all urls in the playlist) / d(downloads all urls in the playlist) / e(exit) / help(h)(show this message)] Enter see / d / e / h [default: see]')
@@ -174,43 +168,27 @@ def get(link,audio,save_to,playlist,info):
                     spinner = Halo(text='\nProcessing...  ', spinner='dots')
                     if audio:    
                         print('\n[INFO] --audio(-a) flag not valid for playlists.') # If the user accidentally inputs -a flag
-                        spinner.start()
-                        for vd in pl.videos:
-                            time.sleep(0.6)
-                            spinner.stop()
-                            if save_to:
+                    else:
+                        pass
+                    spinner.start()
+                    for vd in pl.videos:
+                        time.sleep(0.6)
+                        spinner.stop()
+                        if save_to:
 
-                                for i in tqdm(range(1000),desc='Downloading...'):
+                            for i in tqdm(range(1000),desc='Downloading...'):
+                            
+
+                                vd.streams.get_highest_resolution().download(save_to) #save_to -> path
+                                pass
                                 
+                        else: 
+                            for i in tqdm(range(1000),desc='Downloading...'):
+                            
 
-                                    vd.streams.get_highest_resolution().download(save_to) #save_to -> path
-                                    pass
-                                   
-                            else: 
-                                for i in tqdm(range(1000),desc='Downloading...'):
+                                vd.streams.get_highest_resolution().download()
+                                pass
                                 
-
-                                    vd.streams.get_highest_resolution().download()
-                                    pass
-                                    
-                    else:         
-                        for vd in pl.videos:
-                            if save_to:
-
-                                for i in tqdm(range(1000),desc='Downloading...'):
-                                
-
-                                    vd.streams.get_highest_resolution().download(save_to) # save_to -> path
-                                    pass
-                                    
-                            else: 
-                                for i in tqdm(range(1000),desc='Downloading...'):
-                                
-
-                                    vd.streams.get_highest_resolution().download()
-                                    pass   
-                                  
-
                          
                 elif pl_ch.lower() == 'e':
                     break
@@ -228,6 +206,10 @@ def get(link,audio,save_to,playlist,info):
     
     elif info:
         it = YouTube(info)
+        if audio:
+            print('\n[INFO] --audio(-a) flag not valid for info option.') # If the user accidentally inputs -a flag
+        else:
+            pass    
         print('Title: '+it.title)
         print('URL: '+it.embed_url)
         print('Thumbnail url: '+it.thumbnail_url)
