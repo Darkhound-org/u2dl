@@ -1,0 +1,71 @@
+<h1 id="u2dl">u2dl</h1>
+<p><a href="https://github.com/Darkhound-org/u2dl"><img src="https://img.shields.io/github/v/release/darkhound-org/u2dl" alt="exe-release"></a>
+<a href="https://github.com/Darkhound-org/u2dl/blob/u2_dl/LICENSE"><img src="https://img.shields.io/github/license/Darkhound-org/u2dl" alt="li"></a></p>
+<p>Terminal youtube video ▶️ downloader 📥</p>
+<p><img src="/docs/u2dl-v.gif" alt="u2dl-version"></p>
+<p><a href="https://github.com/Darkhound-org/u2dl">u2dl</a> is a cli app made in python 🐍 that downloads videos from youtube. It processes and displays the streams and the user can select one from it or just type <code>h</code> to get the video in highest resolution. Downloaded videos can be further converted to mp3 format. You can specify the download path if you want with the <code>--save_to</code> or <code>-s</code> option.</p>
+<h2 id="installation">Installation</h2>
+<p>Users in Windows can download the latest binary from <a href="https://github.com/Darkhound-org/u2dl/releases">releases</a> [standalone or single executable]. Alternatively, you can clone this repo, make a new <code>venv</code>, activate it , run <code>pip install -r requirements.txt</code> and then run the app <code>u2dl.py</code>.</p>
+<h3 id="ffmpeg">FFmpeg</h3>
+<p>u2dl needs FFmpeg library (or just ffmpeg.exe) to convert video to mp3 format. It is recommended to keep the FFmpeg binaries along with the u2dl executable(or script) or add to system path. </p>
+<p>You can download FFmpeg from the official site or for just the ffmpeg.exe run <code>u2dl -f</code>.</p>
+<h3 id="try-online">Try online</h3>
+<p>Try u2dl on Binder
+ <a href="https://mybinder.org/v2/gh/Darkhound-org/u2dl/HEAD"><img src="https://mybinder.org/badge_logo.svg" alt="Binder"></a></p>
+<p> Open a bash terminal in binder and run <code>cd src</code>.
+ Install the dependencies <code>pip install -r requirements.txt</code>.</p>
+<p> Now run the app <code>python u2dl.py</code> </p>
+<h2 id="usage">Usage</h2>
+<p>Navigate to the directory where the binary(or script) is located and run <code>u2dl.exe</code>. </p>
+<p><strong>If you encouter a false positive virus warning make the app an exception in windows virus and threat protection (or in the virus scanner you are using).</strong></p>
+<p>For the help message run <code>u2dl.exe --help</code> or simple <code>u2dl.exe</code></p>
+<pre><code><span class="hljs-attribute">Usage</span>: u2dl.exe [OPTIONS] COMMAND [ARGS]...
+
+<span class="awk">  u2dl - Terminal youtube video downloader
+
+  Home page: https:<span class="hljs-regexp">//</span>darkhound-org.github.io<span class="hljs-regexp">/u2dl/</span>
+
+  Github: https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Darkhound-org/u</span>2dl
+
+Options:
+  -li, --license      A brief info about the project license
+  -d, --docs          Opens the documentation [<span class="hljs-keyword">in</span> your browser]
+  -f, --ffmpeg        Get ffmpeg.exe
+  --dev, --developer  A brief info about the developer
+  --version           Show the version and <span class="hljs-keyword">exit</span>.
+  --help              Show this message and <span class="hljs-keyword">exit</span>.
+
+Commands:
+  get</span>
+</code></pre><p>To download FFmpeg run <code>u2dl.exe -f</code>. You will be prompted whether to download the full library (recommended for non-Windows users) (built by  BtbN) from <a href="https://github.com/BtbN/FFmpeg-Builds/releases">https://github.com/BtbN/FFmpeg-Builds/releases</a> or just the ffmpeg.exe file.</p>
+<h3 id="get">Get</h3>
+<p>Run <code>u2dl get --help</code> to view the help message for <code>get</code> command.</p>
+<pre><code><span class="hljs-attribute">Usage</span>: u2dl get [OPTIONS]
+
+<span class="livecodeserver">  Download single videos <span class="hljs-keyword">and</span> playlists <span class="hljs-built_in">from</span> Youtube
+
+  Syntax: u2dl <span class="hljs-built_in">get</span> -l(<span class="hljs-keyword">or</span>)-p(<span class="hljs-keyword">or</span>)i &lt;link&gt; -s &lt;path&gt; -<span class="hljs-keyword">a</span>(flag <span class="hljs-keyword">not</span> valid <span class="hljs-keyword">for</span>
+  playlists <span class="hljs-keyword">and</span> info)
+
+  [Note] : When converting make sure <span class="hljs-keyword">the</span> downloaded <span class="hljs-built_in">file</span> is <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> working
+  <span class="hljs-built_in">directory</span>. Ffmpeg recquired <span class="hljs-keyword">for</span> conversion.
+
+  [Note] : You can place Ffmpeg <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> working <span class="hljs-built_in">directory</span> <span class="hljs-keyword">or</span> <span class="hljs-built_in">add</span> <span class="hljs-built_in">to</span> environment
+  path <span class="hljs-built_in">variable</span>.
+
+Options:
+  -l, <span class="hljs-comment">--link TEXT      Takes the Youtube url</span>
+  -p, <span class="hljs-comment">--playlist TEXT  Takes the playlist url</span>
+  -<span class="hljs-keyword">a</span>, <span class="hljs-comment">--audio          Convert to high quality mp3 format. [Note] : Ffmpeg</span>
+                       recquired <span class="hljs-keyword">for</span> conversion. Read docs <span class="hljs-keyword">for</span> more details.
+  -s, <span class="hljs-comment">--save_to TEXT   Takes the download location [path]</span>
+  -i, <span class="hljs-comment">--info TEXT      Display all available information about a Youtube video</span>
+  <span class="hljs-comment">--help               Show this message and exit.</span></span>
+</code></pre><h4 id="examples">Examples</h4>
+<p>Replace <strong>&lt; link &gt;</strong> and <strong>&lt; path &gt;</strong> with the actual link and path in the below examples.</p>
+<p>▪ Basic usage : <code>u2dl get -l(or)--link &lt;link&gt;</code></p>
+<p>▪ <code>u2dl get -p(or)--playlist &lt;link&gt;</code></p>
+<p>▪ <code>u2dl -i(or)--info &lt;link&gt;</code></p>
+<p>▪ <code>u2dl -l(or)--link &lt;link&gt; -s(or)--save_to &lt;path&gt;</code></p>
+<p>▪ <code>u2dl get -l(or)--link &lt;link&gt; -a(or)--audio</code></p>
+<p>▪ <code>u2dl get -l(or)--link &lt;link&gt; -s(or)--save_to &lt;path&gt; -a(or)--audio</code></p>
