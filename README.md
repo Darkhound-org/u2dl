@@ -15,10 +15,8 @@
                `---'            `----'       2022.09.21     
                                                     
 ```
-[![exe-release](https://img.shields.io/github/v/release/darkhound-org/u2dl)](https://github.com/Darkhound-org/u2dl)
 [![li](https://img.shields.io/github/license/Darkhound-org/u2dl)](https://github.com/Darkhound-org/u2dl/blob/u2_dl/LICENSE)
 [![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fdarkhound-org.github.io%2Fu2dl%2F)](https://darkhound-org.github.io/u2dl/)
-[![tags](https://img.shields.io/github/v/tag/darkhound-org/u2dl)](https://github.com/Darkhound-org/u2dl/tags)
 ![](https://img.shields.io/github/repo-size/darkhound-org/u2dl)
 ![](https://img.shields.io/github/forks/darkhound-org/u2dl?style=social)
 ![](https://img.shields.io/github/watchers/darkhound-org/u2dl?style=social)
