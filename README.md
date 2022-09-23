@@ -39,7 +39,7 @@ You can download FFmpeg from the official site or for just the ffmpeg.exe run `u
 
 ### Try online
 Try u2dl on Binder
- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Darkhound-org/u2dl/HEAD)
+ [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Darkhound-org/u2dl/HEAD) 
 
  Open a bash terminal in binder and run `cd src`.
  Install the dependencies `pip install -r requirements.txt`.
