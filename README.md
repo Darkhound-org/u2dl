@@ -28,6 +28,55 @@ Navigate to the directory where the binary(or script) is located and run `u2dl.e
 
 **If you encouter a false positive virus warning make the app an exception in windows virus and threat protection (or in the virus scanner you are using).**
 
+For the help message run `u2dl.exe --help` or simple `u2dl.exe`
+```
+Usage: u2dl.exe [OPTIONS] COMMAND [ARGS]...
+
+  u2dl - Terminal youtube video downloader
+
+  Home page: https://darkhound-org.github.io/u2dl/
+
+  Github: https://github.com/Darkhound-org/u2dl
+
+Options:
+  -li, --license      A brief info about the project license
+  -d, --docs          Opens the documentation [in your browser]
+  -f, --ffmpeg        Get ffmpeg.exe
+  --dev, --developer  A brief info about the developer
+  --version           Show the version and exit.
+  --help              Show this message and exit.
+
+Commands:
+  get
+```
+To download FFmpeg run `u2dl.exe -f`. You will be prompted whether to download the full library (recommended for non-Windows users) (built by  BtbN) from https://github.com/BtbN/FFmpeg-Builds/releases or just the ffmpeg.exe file.
+
+### Get
+Run `u2dl get --help` to view the help message for `get` command.
+```
+Usage: u2dl get [OPTIONS]
+
+  Download single videos and playlists from Youtube
+
+  Syntax: u2dl get -l(or)-p(or)i <link> -s <path> -a(flag not valid for
+  playlists and info)
+
+  [Note] : When converting make sure the downloaded file is in the working
+  directory. Ffmpeg recquired for conversion.
+
+  [Note] : You can place Ffmpeg in the working directory or add to environment
+  path variable.
+
+Options:
+  -l, --link TEXT      Takes the Youtube url
+  -p, --playlist TEXT  Takes the playlist url
+  -a, --audio          Convert to high quality mp3 format. [Note] : Ffmpeg
+                       recquired for conversion. Read docs for more details.
+  -s, --save_to TEXT   Takes the download location [path]
+  -i, --info TEXT      Display all available information about a Youtube
+  --help               Show this message and exit.
+```
+
 
 
 
