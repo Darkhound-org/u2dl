@@ -20,7 +20,8 @@ Try u2dl now [binder link]
 ## Usage
 Navigate to the directory where the binary(or script) is located and run `u2dl.exe`. 
 
-[NOTE] If you encouter a false positive virus warning make the app an exception from windows virus and threat protection (or the from the virus scanner you are using).
+#### Known issue
+If you encouter a false positive virus warning make the app an exception from windows virus and threat protection (or the from the virus scanner you are using).
 
 
 
