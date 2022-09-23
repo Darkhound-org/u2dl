@@ -15,13 +15,20 @@ u2dl needs FFmpeg library (or just ffmpeg.exe) to convert video to mp3 format. I
 You can download FFmpeg from the official site or for just the ffmpeg.exe run `u2dl -f`.
 
 ### Try online
-Try u2dl now [binder link] 
+Try u2dl on Binder
+ [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Darkhound-org/u2dl/HEAD)
+
+ Open a bash terminal in binder and run `cd src`.
+ Install the dependencies `pip install -r requirements.txt`.
+
+ Now run the app `python u2dl.py` 
 
 ## Usage
 Navigate to the directory where the binary(or script) is located and run `u2dl.exe`. 
 
-#### Known issue
-If you encouter a false positive virus warning make the app an exception from windows virus and threat protection (or the from the virus scanner you are using).
+**If you encouter a false positive virus warning make the app an exception in windows virus and threat protection (or in the virus scanner you are using).**
+
+
 
 
 
